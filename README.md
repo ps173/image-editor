@@ -8,3 +8,8 @@ An Image editor made in react
  - [  ] crop and resize
  - [  ] adding text
  - [  ] beautiful ui
+
+
+### Bugs to fix 
+----
+ - [] file upload in react 
