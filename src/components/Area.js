@@ -13,7 +13,7 @@ function Area() {
        fr.onload = function(e) {
          setImage(prevState => [
            ...prevState,
-           { id: Math.floor(Math.random()*1000), src: e.target.result }
+           { id: Math.floor(Math.random()*10000), src: e.target.result }
          ]);
        };
        fr.readAsDataURL(file);
@@ -31,7 +31,7 @@ function Area() {
           </h1>
         </div>
       </nav> 
-      <Canvas image={image}/>
+      <Canvas images={image}/>
       <FileInput onDrop={onDrop}/>
     </div>
   );
