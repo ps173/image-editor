@@ -1,11 +1,26 @@
-import React,{useState,useEffect} from "react"
+import React,{useState,useCallback} from "react"
 import "../index.css"
-import Canvas from "./Canvas"
 import FileInput from "./FileInput"
+import Canvas from "./Canvas"
 
 function Area() {
-  
-const [fileInp,setFileInp] = useState()
+  const [image,setImage] = useState("")
+
+  const onDrop = useCallback(acceptedFiles=>{
+
+    acceptedFiles.map(file => {
+       const fr = new FileReader();
+       fr.onload = function(e) {
+         setImage(prevState => [
+           ...prevState,
+           { id: Math.floor(Math.random()*1000), src: e.target.result }
+         ]);
+       };
+       fr.readAsDataURL(file);
+       return file;
+     }); 
+    
+  }, [])
 
   return (
     <div>
@@ -16,10 +31,8 @@ const [fileInp,setFileInp] = useState()
           </h1>
         </div>
       </nav> 
-      <div className="container is-fluid centered">
-        <Canvas/>
-      </div>
-      <FileInput value={fileInp}}/>
+      <Canvas image={image}/>
+      <FileInput onDrop={onDrop}/>
     </div>
   );
 }

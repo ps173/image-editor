@@ -15,12 +15,6 @@ body,html{
   background-color: var(--bg-tom)
 }
 
-input{
-  outline:none;
-  border : none;
-  background-color : var(--med-tom)
-}
-
 .dark {
   background-color : var(--bg2-tom);
   color: var(--fg-tom);
@@ -34,3 +28,19 @@ input{
   height : auto
 }
 
+.dropzone-content{
+  display:grid;
+  place-items:center;
+  margin: 3%;
+  height:50%;
+  width:90%;
+  color:var(--fg-tom);
+  border: 1px dashed var(--fg2-tom);
+  transition:0.5s;
+}
+
+.dropzone-content:hover{
+  color:#5AAD6A;
+  transition:0.5s;
+  border: 1px dashed #5AAD6A;
+}
